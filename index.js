@@ -42,7 +42,19 @@ postFetch(nameInput, descriptionInput, imageInput, stateId)
 }
 
 function postFetch(name, description, image_url, state_id) {
-    console.log(name, description, image_url, state_id)
+    const bodyData = {name, description, image_url, state_id}
+    fetch(endpoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(syllabus => {
+        console.log(gas_station);
+
+        document.querySelector('#gas_station-
+            container').innerHTML += gas_stationMarkup
+    })
 
 }
 
