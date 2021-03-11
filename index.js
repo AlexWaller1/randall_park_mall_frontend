@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createGasStationForm = document.querySelector("#create-gas_station-form")
 
-    createGasStationForm.addEventListener("submit", (e) => console.log(e))
+    createGasStationForm.addEventListener("submit", (e) => 
+    createFormHandler(e))
 })
 
 function getStations() {
@@ -26,7 +27,22 @@ function getStations() {
             <br></br> ;
 
             document.querySelector('#gas_station-
-            container').innerHTML += syllabusMarkup
+            container').innerHTML += gas_stationMarkup
         })
     })
 }
+
+function createFormHandler(e) {
+e.preventDefault()
+const nameInput = document.querySelector('#input-name').value
+const descriptionInput = document.querySelector('#input-description').value
+const imageInput = document.querySelector('#input-url').value
+const stateId = parseInt(document.querySelector('#categories').value)
+postFetch(nameInput, descriptionInput, imageInput, stateId)
+}
+
+function postFetch(name, description, image_url, state_id) {
+    console.log(name, description, image_url, state_id)
+
+}
+
